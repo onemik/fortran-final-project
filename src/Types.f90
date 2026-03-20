@@ -1,15 +1,23 @@
-module com
+module Types
+  use NumberKinds
   implicit none
-  public :: ComputeCenterOfMass
   private
+  public :: Atom, Bond, Molecule
+
+  type :: Atom
+    character(len=2) :: symbol !C or H
+    real(KREAL) :: x,y,z !coordinates
+  end type
+
+  type :: Bond
+
+
+  end type
         
         
-contains
+  type :: Molecule
+    type(Atom), allocatable :: atoms(:) 
 
-  subroutine ComputeCenterOfMass(filename)
-    character(len=*), intent(in) :: filename
-
-    print *, "from test ComputeCenterOfMass subroutine: ", filename 
-  end subroutine
+  end type
 
 end module
