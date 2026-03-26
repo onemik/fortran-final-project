@@ -1,6 +1,8 @@
 program  main
   use NumberKinds
   use InputOutput
+  use Geometry
+  use Energy
 
   implicit none 
 
