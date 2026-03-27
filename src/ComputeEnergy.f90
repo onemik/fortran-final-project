@@ -99,10 +99,27 @@ module ComputeEnergy
         type(Molecule), intent(in) :: mol
         real(KREAL) :: Enonbonding
 
+        integer :: pair
+        integer :: i,j
+        real(KREAL) :: r !distance
+        real(KREAL) :: r6, r12 !for the formula 
 
         !starting energy
         Enonbonding = 0.0_KREAL
 
+        !for every non bonded pair calculating the van der waals energy
+        do pair = 1, size(mol%nobonds)
+            i = mol%nobonds(pair)%i
+            j = mol%nobonds(pair)%j
+
+            r = CalculateDistance(mol%atoms(i), mol%atoms(j))
+
+            r6 = r**6
+            r12 = r6**2
+
+            !energy formula
+            Enonbonding = Enonbonding +(Aij/r12 - Bij/r6)
+        end do
 
     end function
 
