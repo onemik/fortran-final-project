@@ -1,0 +1,8 @@
+{
+	"InstallScripts" : 
+	[
+		"/Users/one/FORTRAN/FinalProject/build/cmake_install.cmake",
+		"/Users/one/FORTRAN/FinalProject/build/src/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

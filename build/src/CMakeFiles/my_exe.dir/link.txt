@@ -1,0 +1,1 @@
+/opt/homebrew/bin/gfortran  -std=f2008 -g -Wall -g CMakeFiles/my_exe.dir/main.f90.o -o my_exe  libmylib.a -framework Accelerate -lm -ldl

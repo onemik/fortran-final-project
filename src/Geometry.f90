@@ -22,7 +22,7 @@ module Geometry
         real(KREAL) :: theta
 
         real(KREAL) :: vector1(3), vector2(3) !for the two atoms with 3 coords each
-        real(KREAL) :: cos_theta, norm1, norm2 !helpers for dot product calulation
+        real(KREAL) :: cos_theta, norm1, norm2 !helpers for dot product calculation
 
 
         vector1 = [a%x - b%x, a%y - b%y, a%z - b%z] !vector from B to A
@@ -46,12 +46,19 @@ module Geometry
         real(KREAL) :: phi
 
         real(KREAL) :: vector1(3), vector2(3), vector3(3)
+        real(KREAL) :: normal1(3), normal2(3) 
+        real(KREAL) :: result(3) !resulting vector
 
         vector1 = [b%x - a%x, b%y - a%y, b%z - a%z] !vector from A to B
-        vector2 = [d%x - c%x, d%y - c%y, d%z - c%z] !vector from C to D
-        vector3 = [c%x - b%x, c%y - b%y, c%z - b%z] !vector from B to C
+        vector3 = [d%x - c%x, d%y - c%y, d%z - c%z] !vector from C to D
+        vector2 = [c%x - b%x, c%y - b%y, c%z - b%z] !vector from B to C
 
+        !calculating normals with cross product and then normalise
+        normal1 = CrossProduct(vector1,vector2)
+        normal2 = CrossProduct(vector2,vector3)
 
+        result = CrossProduct(normal1, vector2/sqrt(sum(vector2**2)))
+        phi = atan2(sum(result*normal2), sum(normal1*normal2))
 
     end function
 

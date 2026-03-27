@@ -7,7 +7,7 @@ enable_language(Fortran C)
 
 # Currently setting the Fortran compiler to use -std=gnu, change this if you
 # want a specific standard
-set(FVERSION "-std=f95")
+set(FVERSION "-std=f2008")
 set(CMAKE_Fortran_FLAGS "${CMAKE_Fortran_FLAGS} ${FVERSION}")
 set(CMAKE_Fortran_FLAGS_DEBUG "${CMAKE_Fortran_FLAGS_DEBUG} -Wall -g")
 set(CMAKE_Fortran_FLAGS_RELEASE "${CMAKE_Fortran_FLAGS_RELEASE} -Wall -O2")

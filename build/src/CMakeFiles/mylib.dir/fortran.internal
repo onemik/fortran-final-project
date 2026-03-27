@@ -1,0 +1,9 @@
+# The fortran modules provided by this target.
+provides
+ energy.mod
+ geometry.mod
+ inputoutput.mod
+ metropolis.mod
+ numberkinds.mod
+ parameters.mod
+ types.mod

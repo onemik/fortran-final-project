@@ -1,4 +1,6 @@
 module Metropolis
+    use NumberKinds
+    use Types
     use Energy
     implicit none
     private
