@@ -3,7 +3,7 @@ module InputOutput
     use Types
     implicit none
     private
-    public :: ReadFile
+    public :: ReadFile, printStartingInfo, readMetropolisParams, printFinalInfo, printResults
 
     contains
 
@@ -83,7 +83,79 @@ module InputOutput
 
     end subroutine
 
+    subroutine printStartingInfo(mol, energy)
+        type(Molecule), intent(in) :: mol
+        type(Energies), intent(in) :: energy
+
+        print *, "-----------------------"
+        print *, "Initial molecule information:"
+        print *, "Number of atoms:", size(mol%atoms)
+        print *, "Number of bonds:", size(mol%bonds)
+        print *, "Number of angles:", size(mol%angles)
+        print *, "Number of torsions:", size(mol%torsions)
+        print *, "Number of non-bonds:", size(mol%nobonds)
+        print *, "-----------------------"
+        print *, "Initial energies:"
+        write(*,'(A,F12.6)') "Stretch energy:", energy%stretch
+        write(*,'(A,F12.6)') "Bend energy:", energy%bend
+        write(*,'(A,F12.6)') "Torsion energy:", energy%torsion
+        write(*,'(A,F12.6)') "Nonbonded energy:", energy%nonbond
+        write(*,'(A,F12.6)') "Total energy:", energy%total
+        print *, "-----------------------"
+
+    end subroutine
+
+    !read in metropolis parameters by the user
+    subroutine readMetropolisParams(NumberOfSteps, stepSize, temperature)
+        integer, intent(out) :: NumberOfSteps
+        real(KREAL), intent(out) :: stepSize, temperature
+
+        print *, "Enter the desired number of Metropolis steps"
+        read(*,*) NumberOfSteps
+
+        print *, "Enter step size:"
+        read(*,*) stepSize
+
+        print *, "Enter temperature (K):"
+        read(*,*) temperature
 
 
+    end subroutine
+
+    !print info after running metropolis algorithm
+    subroutine printFinalInfo(energy, bestEnergy, acceptanceRate)
+        type(Energies), intent(in) :: energy
+        real(KREAL), intent(in) :: bestEnergy, acceptanceRate
+
+        print *, "-----------------------"
+        print *, "Final energies after Metropolis:"
+        write(*,'(A,F12.6)') "Stretch energy:", energy%stretch
+        write(*,'(A,F12.6)') "Bend energy:", energy%bend
+        write(*,'(A,F12.6)') "Torsion energy:", energy%torsion
+        write(*,'(A,F12.6)') "Nonbonded energy:", energy%nonbond
+        write(*,'(A,F12.6)') "Total energy:", energy%total
+        write(*,'(A,F12.6)') "Best energy:", bestEnergy
+        write(*,'(A,F12.6)') "Acceptance rate:", acceptanceRate
+        print *, "-----------------------"
+
+    end subroutine 
+
+    !print atom table
+    subroutine printResults(mol)
+        type(Molecule), intent(in) :: mol
+        integer :: i 
+
+        print *, "Atom coordinates:"
+        print *, "Atom   Symbol     x     y     z"
+
+        do i=1, size(mol%atoms)
+            write(*, '(I3, 2X, A2, 3F20.10)') i, &
+            trim(mol%atoms(i)%symbol), &
+            mol%atoms(i)%x, &
+            mol%atoms(i)%y, &
+            mol%atoms(i)%z
+        end do
+
+    end subroutine
 
 end module

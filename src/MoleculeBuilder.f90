@@ -163,13 +163,110 @@ module MoleculeBuilder
 
     end subroutine
 
-
+    !torsion is where for atoms connected in a chain i-j-k-l
+    !i.e. rotation around the middle bond (between j-k), so measuring
+    !the angle between planes i-j-k and j-k-l
     subroutine BuildBondTorsions(mol)
         type(Molecule), intent(inout) :: mol
 
+        integer :: NumberOfAtoms
+        integer :: NumberOfBonds
+        integer :: NumberOfTorsions 
+
+        integer :: b !bond index
+        integer :: i,j,k,l
+        integer :: NumberOfNeighboursJ, NumberOfNeighboursK
+        integer :: n1,n2
+        integer, allocatable :: NeighboursJ(:), NeighboursK(:)
+        type(Torsion), allocatable :: tmpTorsions(:)
+
+        NumberOfAtoms = size(mol%atoms)
+        NumberOfBonds = size(mol%bonds)
+
+        allocate(tmpTorsions(NumberOfBonds*NumberOfBonds)) !max possible number of torsions
+        allocate(NeighboursJ(NumberOfAtoms)) !max possible number of neighbours 
+        allocate(NeighboursK(NumberOfAtoms))
+
+        NumberOfTorsions = 0 !starting value
+
+        !loop over each bond as the central bond j-k 
+        do b=1, NumberOfBonds
+            !define central bond
+            j = mol%bonds(b)%i
+            k = mol%bonds(b)%j
+
+            !find all neighrbours of j excluding k, ie possible "i" atoms
+            call GetNeighbours(mol%bonds,j,k,NeighboursJ, NumberOfNeighboursJ)
+            !same but for possible "l" atoms
+            call GetNeighbours(mol%bonds,k,j,NeighboursK, NumberOfNeighboursK)
+
+            !combine neighbours of j and k to form torsions i-j-k-l
+            do n1 = 1, NumberOfNeighboursJ
+                i = NeighboursJ(n1)
+
+                do n2=1, NumberOfNeighboursK
+                    l = NeighboursK(n2)
+
+                    !store torsion defined by atoms ijkl
+                    if (i/=l) then
+                        NumberOfTorsions = NumberOfTorsions + 1
+                        tmpTorsions(NumberOfTorsions)%i = i
+                        tmpTorsions(NumberOfTorsions)%j = j
+                        tmpTorsions(NumberOfTorsions)%k = k
+                        tmpTorsions(NumberOfTorsions)%l = l
+                    end if
+                end do
+            end do
+        end do
+
+        !storing values and freeing up storage space
+        if (allocated(mol%torsions)) deallocate(mol%torsions)
+        allocate(mol%torsions(NumberOfTorsions))
+        mol%torsions = tmpTorsions(1:NumberOfTorsions)
+
+        deallocate(tmpTorsions)
+        deallocate(NeighboursJ)
+        deallocate(NeighboursK)
 
     end subroutine
 
+    !helper subroutine to look for all existing neighbours of e.g. atom j  
+    !excluding k (because it's already connected to j from the other side)
+    subroutine GetNeighbours(bonds, centerAtom, excludedAtom, neighbours, NumberOfNeighbours)
+        type(Bond), intent(in) :: bonds(:)
+        integer, intent(in) :: centerAtom, excludedAtom 
+        integer, intent(out) :: neighbours(:)
+        integer, intent(out) :: NumberOfNeighbours
+
+        integer :: b !bond index
+
+        !starting value
+        NumberOfNeighbours = 0 
+
+        !loop through the bonds to see whether it involves the selected center atom 
+        !but that it also excludes the other atom in the bond
+        do b=1, size(bonds)
+
+            !center atom being the first atom in the bond & neighbour is the second atom
+            if (bonds(b)%i == centerAtom) then 
+                if (bonds(b)%j /= excludedAtom) then !only store if it's not the excluded atom
+                    NumberOfNeighbours = NumberOfNeighbours + 1
+                    neighbours(NumberOfNeighbours) = bonds(b)%j
+                end if
+            
+            !center atom is the second atom in the bond & neighbour is the first atom
+            elseif (bonds(b)%j == centerAtom) then
+                if (bonds(b)%i /= excludedAtom) then
+                    NumberOfNeighbours = NumberOfNeighbours + 1
+                    neighbours(NumberOfNeighbours) = bonds(b)%i
+                end if
+
+            end if
+
+        end do
+
+
+    end subroutine
 
     !make a list of pairs of atoms that are not bonded (for nonbonded energy)
     subroutine BuildNonBondedPairs(mol)

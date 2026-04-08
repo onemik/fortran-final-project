@@ -41,6 +41,8 @@ module Types
     real(KREAL) :: stretch = 0.0_KREAL
     real(KREAL) :: bend = 0.0_KREAL
     real(KREAL) :: nonbond = 0.0_KREAL
+    real(KREAL) :: torsion = 0.0_KREAL
+    real(KREAL) :: total = 0.0_KREAL
   end type
 
 end module

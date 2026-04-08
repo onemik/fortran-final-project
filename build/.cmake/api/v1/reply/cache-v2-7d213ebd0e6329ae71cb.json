@@ -1727,7 +1727,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "NumberKinds.f90;Types.f90;InputOutput.f90;Parameters.f90;Geometry.f90;Builder.f90;Energy.f90;Metropolis.f90"
+			"value" : "NumberKinds.f90;Types.f90;InputOutput.f90;Parameters.f90;Geometry.f90;MoleculeBuilder.f90;ComputeEnergy.f90;Metropolis.f90"
 		},
 		{
 			"name" : "my_project_BINARY_DIR",

@@ -192,53 +192,29 @@ my_exe/fast:
 	cd /Users/one/FORTRAN/FinalProject/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/my_exe.dir/build.make src/CMakeFiles/my_exe.dir/build
 .PHONY : my_exe/fast
 
-Builder.o: Builder.f90.o
-.PHONY : Builder.o
+ComputeEnergy.o: ComputeEnergy.f90.o
+.PHONY : ComputeEnergy.o
 
 # target to build an object file
-Builder.f90.o:
-	cd /Users/one/FORTRAN/FinalProject/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/mylib.dir/build.make src/CMakeFiles/mylib.dir/Builder.f90.o
-.PHONY : Builder.f90.o
+ComputeEnergy.f90.o:
+	cd /Users/one/FORTRAN/FinalProject/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/mylib.dir/build.make src/CMakeFiles/mylib.dir/ComputeEnergy.f90.o
+.PHONY : ComputeEnergy.f90.o
 
-Builder.i: Builder.f90.i
-.PHONY : Builder.i
-
-# target to preprocess a source file
-Builder.f90.i:
-	cd /Users/one/FORTRAN/FinalProject/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/mylib.dir/build.make src/CMakeFiles/mylib.dir/Builder.f90.i
-.PHONY : Builder.f90.i
-
-Builder.s: Builder.f90.s
-.PHONY : Builder.s
-
-# target to generate assembly for a file
-Builder.f90.s:
-	cd /Users/one/FORTRAN/FinalProject/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/mylib.dir/build.make src/CMakeFiles/mylib.dir/Builder.f90.s
-.PHONY : Builder.f90.s
-
-Energy.o: Energy.f90.o
-.PHONY : Energy.o
-
-# target to build an object file
-Energy.f90.o:
-	cd /Users/one/FORTRAN/FinalProject/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/mylib.dir/build.make src/CMakeFiles/mylib.dir/Energy.f90.o
-.PHONY : Energy.f90.o
-
-Energy.i: Energy.f90.i
-.PHONY : Energy.i
+ComputeEnergy.i: ComputeEnergy.f90.i
+.PHONY : ComputeEnergy.i
 
 # target to preprocess a source file
-Energy.f90.i:
-	cd /Users/one/FORTRAN/FinalProject/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/mylib.dir/build.make src/CMakeFiles/mylib.dir/Energy.f90.i
-.PHONY : Energy.f90.i
+ComputeEnergy.f90.i:
+	cd /Users/one/FORTRAN/FinalProject/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/mylib.dir/build.make src/CMakeFiles/mylib.dir/ComputeEnergy.f90.i
+.PHONY : ComputeEnergy.f90.i
 
-Energy.s: Energy.f90.s
-.PHONY : Energy.s
+ComputeEnergy.s: ComputeEnergy.f90.s
+.PHONY : ComputeEnergy.s
 
 # target to generate assembly for a file
-Energy.f90.s:
-	cd /Users/one/FORTRAN/FinalProject/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/mylib.dir/build.make src/CMakeFiles/mylib.dir/Energy.f90.s
-.PHONY : Energy.f90.s
+ComputeEnergy.f90.s:
+	cd /Users/one/FORTRAN/FinalProject/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/mylib.dir/build.make src/CMakeFiles/mylib.dir/ComputeEnergy.f90.s
+.PHONY : ComputeEnergy.f90.s
 
 Geometry.o: Geometry.f90.o
 .PHONY : Geometry.o
@@ -311,6 +287,30 @@ Metropolis.s: Metropolis.f90.s
 Metropolis.f90.s:
 	cd /Users/one/FORTRAN/FinalProject/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/mylib.dir/build.make src/CMakeFiles/mylib.dir/Metropolis.f90.s
 .PHONY : Metropolis.f90.s
+
+MoleculeBuilder.o: MoleculeBuilder.f90.o
+.PHONY : MoleculeBuilder.o
+
+# target to build an object file
+MoleculeBuilder.f90.o:
+	cd /Users/one/FORTRAN/FinalProject/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/mylib.dir/build.make src/CMakeFiles/mylib.dir/MoleculeBuilder.f90.o
+.PHONY : MoleculeBuilder.f90.o
+
+MoleculeBuilder.i: MoleculeBuilder.f90.i
+.PHONY : MoleculeBuilder.i
+
+# target to preprocess a source file
+MoleculeBuilder.f90.i:
+	cd /Users/one/FORTRAN/FinalProject/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/mylib.dir/build.make src/CMakeFiles/mylib.dir/MoleculeBuilder.f90.i
+.PHONY : MoleculeBuilder.f90.i
+
+MoleculeBuilder.s: MoleculeBuilder.f90.s
+.PHONY : MoleculeBuilder.s
+
+# target to generate assembly for a file
+MoleculeBuilder.f90.s:
+	cd /Users/one/FORTRAN/FinalProject/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/mylib.dir/build.make src/CMakeFiles/mylib.dir/MoleculeBuilder.f90.s
+.PHONY : MoleculeBuilder.f90.s
 
 NumberKinds.o: NumberKinds.f90.o
 .PHONY : NumberKinds.o
@@ -422,12 +422,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... my_exe"
 	@echo "... mylib"
-	@echo "... Builder.o"
-	@echo "... Builder.i"
-	@echo "... Builder.s"
-	@echo "... Energy.o"
-	@echo "... Energy.i"
-	@echo "... Energy.s"
+	@echo "... ComputeEnergy.o"
+	@echo "... ComputeEnergy.i"
+	@echo "... ComputeEnergy.s"
 	@echo "... Geometry.o"
 	@echo "... Geometry.i"
 	@echo "... Geometry.s"
@@ -437,6 +434,9 @@ help:
 	@echo "... Metropolis.o"
 	@echo "... Metropolis.i"
 	@echo "... Metropolis.s"
+	@echo "... MoleculeBuilder.o"
+	@echo "... MoleculeBuilder.i"
+	@echo "... MoleculeBuilder.s"
 	@echo "... NumberKinds.o"
 	@echo "... NumberKinds.i"
 	@echo "... NumberKinds.s"

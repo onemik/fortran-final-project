@@ -118,13 +118,13 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/Builder.f90",
+			"path" : "src/MoleculeBuilder.f90",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/Energy.f90",
+			"path" : "src/ComputeEnergy.f90",
 			"sourceGroupIndex" : 0
 		},
 		{

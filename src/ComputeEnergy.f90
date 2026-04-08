@@ -7,12 +7,22 @@ module ComputeEnergy
     use Parameters
     implicit none
     private
-    public :: ComputeAllEnergies
+    public :: ComputeAllEnergies, TotalEnergy
 
     contains
 
+    !compute total energy
+    function TotalEnergy(mol) result(Etotal)
+        type(Molecule), intent(in) :: mol
+        real(KREAL) :: Etotal
+        type(Energies) :: Energy
 
-    
+        Energy = ComputeAllEnergies(mol)
+        Etotal = Energy%total
+
+    end function
+
+    !compute energy breakdown of the molecule 
     function ComputeAllEnergies(mol) result(Energy)
         type(Molecule), intent(in) :: mol
         type(Energies) :: Energy
@@ -20,6 +30,8 @@ module ComputeEnergy
         Energy%stretch = StretchEnergy(mol)
         Energy%bend = BendingEnergy(mol)
         Energy%nonbond = NonBondingEnergy(mol)
+        Energy%torsion = TorsionalEnergy(mol)
+        Energy%total = Energy%stretch + Energy%bend + Energy%nonbond + Energy%torsion
 
     end function
 
@@ -89,7 +101,27 @@ module ComputeEnergy
 
     function TorsionalEnergy(mol) result(Etorsional)
         type(Molecule), intent(in) :: mol
-        real(KREAL) :: Etorsion
+        real(KREAL) :: Etorsional
+
+        integer :: t
+        integer :: i,j,k,l
+        real(KREAL) :: omega_tors
+
+        !starting energy
+        Etorsional = 0.0_KREAL
+
+        do t=1, size(mol%torsions)
+            i = mol%torsions(t)%i
+            j = mol%torsions(t)%j
+            k = mol%torsions(t)%k
+            l = mol%torsions(t)%l
+
+            omega_tors = CalculateTorsionalAngle(mol%atoms(i), mol%atoms(j), mol%atoms(k), mol%atoms(l))
+
+            !formula from exercise
+            Etorsional = Etorsional + 0.5_KREAL * V1_tors * (1 + cos(real(n_tors,KREAL)*omega_tors - gamma_tors))
+
+        end do
 
     end function
 
@@ -118,7 +150,7 @@ module ComputeEnergy
             r12 = r6**2
 
             !energy formula
-            Enonbonding = Enonbonding +(Aij/r12 - Bij/r6)
+            Enonbonding = Enonbonding + (Aij/r12 - Bij/r6)
         end do
 
     end function

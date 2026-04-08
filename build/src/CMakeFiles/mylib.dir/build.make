@@ -140,31 +140,31 @@ src/CMakeFiles/mylib.dir/Geometry.f90.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling Fortran source to assembly CMakeFiles/mylib.dir/Geometry.f90.s"
 	cd /Users/one/FORTRAN/FinalProject/build/src && /opt/homebrew/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -S /Users/one/FORTRAN/FinalProject/src/Geometry.f90 -o CMakeFiles/mylib.dir/Geometry.f90.s
 
-src/CMakeFiles/mylib.dir/Builder.f90.o: src/CMakeFiles/mylib.dir/flags.make
-src/CMakeFiles/mylib.dir/Builder.f90.o: /Users/one/FORTRAN/FinalProject/src/Builder.f90
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/one/FORTRAN/FinalProject/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building Fortran object src/CMakeFiles/mylib.dir/Builder.f90.o"
-	cd /Users/one/FORTRAN/FinalProject/build/src && /opt/homebrew/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -c /Users/one/FORTRAN/FinalProject/src/Builder.f90 -o CMakeFiles/mylib.dir/Builder.f90.o
+src/CMakeFiles/mylib.dir/MoleculeBuilder.f90.o: src/CMakeFiles/mylib.dir/flags.make
+src/CMakeFiles/mylib.dir/MoleculeBuilder.f90.o: /Users/one/FORTRAN/FinalProject/src/MoleculeBuilder.f90
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/one/FORTRAN/FinalProject/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building Fortran object src/CMakeFiles/mylib.dir/MoleculeBuilder.f90.o"
+	cd /Users/one/FORTRAN/FinalProject/build/src && /opt/homebrew/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -c /Users/one/FORTRAN/FinalProject/src/MoleculeBuilder.f90 -o CMakeFiles/mylib.dir/MoleculeBuilder.f90.o
 
-src/CMakeFiles/mylib.dir/Builder.f90.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing Fortran source to CMakeFiles/mylib.dir/Builder.f90.i"
-	cd /Users/one/FORTRAN/FinalProject/build/src && /opt/homebrew/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -E /Users/one/FORTRAN/FinalProject/src/Builder.f90 > CMakeFiles/mylib.dir/Builder.f90.i
+src/CMakeFiles/mylib.dir/MoleculeBuilder.f90.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing Fortran source to CMakeFiles/mylib.dir/MoleculeBuilder.f90.i"
+	cd /Users/one/FORTRAN/FinalProject/build/src && /opt/homebrew/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -E /Users/one/FORTRAN/FinalProject/src/MoleculeBuilder.f90 > CMakeFiles/mylib.dir/MoleculeBuilder.f90.i
 
-src/CMakeFiles/mylib.dir/Builder.f90.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling Fortran source to assembly CMakeFiles/mylib.dir/Builder.f90.s"
-	cd /Users/one/FORTRAN/FinalProject/build/src && /opt/homebrew/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -S /Users/one/FORTRAN/FinalProject/src/Builder.f90 -o CMakeFiles/mylib.dir/Builder.f90.s
+src/CMakeFiles/mylib.dir/MoleculeBuilder.f90.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling Fortran source to assembly CMakeFiles/mylib.dir/MoleculeBuilder.f90.s"
+	cd /Users/one/FORTRAN/FinalProject/build/src && /opt/homebrew/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -S /Users/one/FORTRAN/FinalProject/src/MoleculeBuilder.f90 -o CMakeFiles/mylib.dir/MoleculeBuilder.f90.s
 
-src/CMakeFiles/mylib.dir/Energy.f90.o: src/CMakeFiles/mylib.dir/flags.make
-src/CMakeFiles/mylib.dir/Energy.f90.o: /Users/one/FORTRAN/FinalProject/src/Energy.f90
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/one/FORTRAN/FinalProject/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building Fortran object src/CMakeFiles/mylib.dir/Energy.f90.o"
-	cd /Users/one/FORTRAN/FinalProject/build/src && /opt/homebrew/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -c /Users/one/FORTRAN/FinalProject/src/Energy.f90 -o CMakeFiles/mylib.dir/Energy.f90.o
+src/CMakeFiles/mylib.dir/ComputeEnergy.f90.o: src/CMakeFiles/mylib.dir/flags.make
+src/CMakeFiles/mylib.dir/ComputeEnergy.f90.o: /Users/one/FORTRAN/FinalProject/src/ComputeEnergy.f90
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/one/FORTRAN/FinalProject/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building Fortran object src/CMakeFiles/mylib.dir/ComputeEnergy.f90.o"
+	cd /Users/one/FORTRAN/FinalProject/build/src && /opt/homebrew/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -c /Users/one/FORTRAN/FinalProject/src/ComputeEnergy.f90 -o CMakeFiles/mylib.dir/ComputeEnergy.f90.o
 
-src/CMakeFiles/mylib.dir/Energy.f90.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing Fortran source to CMakeFiles/mylib.dir/Energy.f90.i"
-	cd /Users/one/FORTRAN/FinalProject/build/src && /opt/homebrew/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -E /Users/one/FORTRAN/FinalProject/src/Energy.f90 > CMakeFiles/mylib.dir/Energy.f90.i
+src/CMakeFiles/mylib.dir/ComputeEnergy.f90.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing Fortran source to CMakeFiles/mylib.dir/ComputeEnergy.f90.i"
+	cd /Users/one/FORTRAN/FinalProject/build/src && /opt/homebrew/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -E /Users/one/FORTRAN/FinalProject/src/ComputeEnergy.f90 > CMakeFiles/mylib.dir/ComputeEnergy.f90.i
 
-src/CMakeFiles/mylib.dir/Energy.f90.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling Fortran source to assembly CMakeFiles/mylib.dir/Energy.f90.s"
-	cd /Users/one/FORTRAN/FinalProject/build/src && /opt/homebrew/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -S /Users/one/FORTRAN/FinalProject/src/Energy.f90 -o CMakeFiles/mylib.dir/Energy.f90.s
+src/CMakeFiles/mylib.dir/ComputeEnergy.f90.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling Fortran source to assembly CMakeFiles/mylib.dir/ComputeEnergy.f90.s"
+	cd /Users/one/FORTRAN/FinalProject/build/src && /opt/homebrew/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -S /Users/one/FORTRAN/FinalProject/src/ComputeEnergy.f90 -o CMakeFiles/mylib.dir/ComputeEnergy.f90.s
 
 src/CMakeFiles/mylib.dir/Metropolis.f90.o: src/CMakeFiles/mylib.dir/flags.make
 src/CMakeFiles/mylib.dir/Metropolis.f90.o: /Users/one/FORTRAN/FinalProject/src/Metropolis.f90
@@ -186,8 +186,8 @@ mylib_OBJECTS = \
 "CMakeFiles/mylib.dir/InputOutput.f90.o" \
 "CMakeFiles/mylib.dir/Parameters.f90.o" \
 "CMakeFiles/mylib.dir/Geometry.f90.o" \
-"CMakeFiles/mylib.dir/Builder.f90.o" \
-"CMakeFiles/mylib.dir/Energy.f90.o" \
+"CMakeFiles/mylib.dir/MoleculeBuilder.f90.o" \
+"CMakeFiles/mylib.dir/ComputeEnergy.f90.o" \
 "CMakeFiles/mylib.dir/Metropolis.f90.o"
 
 # External object files for target mylib
@@ -198,8 +198,8 @@ src/libmylib.a: src/CMakeFiles/mylib.dir/Types.f90.o
 src/libmylib.a: src/CMakeFiles/mylib.dir/InputOutput.f90.o
 src/libmylib.a: src/CMakeFiles/mylib.dir/Parameters.f90.o
 src/libmylib.a: src/CMakeFiles/mylib.dir/Geometry.f90.o
-src/libmylib.a: src/CMakeFiles/mylib.dir/Builder.f90.o
-src/libmylib.a: src/CMakeFiles/mylib.dir/Energy.f90.o
+src/libmylib.a: src/CMakeFiles/mylib.dir/MoleculeBuilder.f90.o
+src/libmylib.a: src/CMakeFiles/mylib.dir/ComputeEnergy.f90.o
 src/libmylib.a: src/CMakeFiles/mylib.dir/Metropolis.f90.o
 src/libmylib.a: src/CMakeFiles/mylib.dir/build.make
 src/libmylib.a: src/CMakeFiles/mylib.dir/link.txt

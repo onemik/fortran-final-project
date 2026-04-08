@@ -1,8 +1,8 @@
 # Remove fortran modules provided by this target.
 FILE(REMOVE
-  "energy.mod"
-  "ENERGY.mod"
-  "CMakeFiles/mylib.dir/energy.mod.stamp"
+  "computeenergy.mod"
+  "COMPUTEENERGY.mod"
+  "CMakeFiles/mylib.dir/computeenergy.mod.stamp"
 
   "geometry.mod"
   "GEOMETRY.mod"
@@ -15,6 +15,10 @@ FILE(REMOVE
   "metropolis.mod"
   "METROPOLIS.mod"
   "CMakeFiles/mylib.dir/metropolis.mod.stamp"
+
+  "moleculebuilder.mod"
+  "MOLECULEBUILDER.mod"
+  "CMakeFiles/mylib.dir/moleculebuilder.mod.stamp"
 
   "numberkinds.mod"
   "NUMBERKINDS.mod"
